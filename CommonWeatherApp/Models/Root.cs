@@ -34,7 +34,7 @@ namespace CommonWeatherApp.Models
     public class List
     {
         public int dt { get; set; }
-        public string DateTime => UtcTimeLibrary.UtcTimeStamp.ConvertToUtc(dt);
+        public string dateTime => UtcTimeLibrary.UtcTimeStamp.ConvertToUtc(dt);
         public Main main { get; set; }
         public List<Weather> weather { get; set; }
         public Clouds clouds { get; set; }

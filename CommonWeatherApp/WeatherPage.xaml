@@ -37,7 +37,7 @@
 
                         <Image Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Start" HeightRequest="50" WidthRequest="50" Source="{Binding weather[0].CustomIconUrl}"/>
                         <Label Grid.Row="1" FontSize="Large" HorizontalOptions="Center" Text="{Binding main.FormatedTemp}"/>
-                        <Label Grid.Row="2" FontSize="Small" HorizontalOptions="Center" Text="{Binding DateTime}"/>
+                        <Label Grid.Row="2" FontSize="Small" HorizontalOptions="Center" Text="{Binding dateTime}"/>
                         
 
                     </Grid>
