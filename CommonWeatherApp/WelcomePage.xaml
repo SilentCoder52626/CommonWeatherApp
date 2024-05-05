@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonWeatherApp.WelcomePage"
+             Title="WelcomePage"
+             BackgroundColor="#512DA8">
+    <StackLayout VerticalOptions="Center" Margin="20" Spacing="0">
+
+        <Image Source="icon_02d.png" HeightRequest="200" WidthRequest="200"/>
+        <Label Text="Weather" TextColor="#ffca28" FontSize="40" />
+        <Label Text="Forecase App." FontSize="40" TextColor="white"/>
+        <Label Text="It's the newest weather app. It has bunch of feature and that includes most of the ones that every weather app has." FontSize="Small" TextColor="Wheat"/>
+        <Button Text="Getting Started" FontSize="Large" BackgroundColor="#ffca28" WidthRequest="250" Margin="0,50,0,0" x:Name="BtnGetStarted" Clicked="BtnGetStarted_Clicked"/>
+
+    </StackLayout>
+</ContentPage>
