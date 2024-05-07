@@ -1,21 +1,22 @@
-﻿namespace CommonWeatherApp
+﻿using CommonWeatherApp.Services;
+
+namespace CommonWeatherApp
 {
     public partial class App : Application
     {
-        public App()
+        public App(IApiService apiService)
         {
             InitializeComponent();
 
             VersionTracking.Track();
             if (VersionTracking.IsFirstLaunchEver)
             {
-                MainPage = new WelcomePage();
+                MainPage = new WelcomePage(apiService);
             }
             else
             {
-                MainPage = new WeatherPage();
+                MainPage = new WeatherPage(apiService);
             }
-
         }
     }
 }

@@ -1,14 +1,18 @@
+using CommonWeatherApp.Services;
+
 namespace CommonWeatherApp;
 
 public partial class WelcomePage : ContentPage
 {
-	public WelcomePage()
-	{
-		InitializeComponent();
-	}
+	private readonly IApiService _apiService;
+    public WelcomePage(IApiService apiService)
+    {
+        InitializeComponent();
+        _apiService = apiService;
+    }
 
     private async void BtnGetStarted_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PushModalAsync(new WeatherPage());
+		await Navigation.PushModalAsync(new WeatherPage(_apiService));
     }
 }

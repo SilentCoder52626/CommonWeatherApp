@@ -8,11 +8,14 @@ public partial class WeatherPage : ContentPage
     public List<Models.List> WeatherList;
     public double lat;
     public double lon;
-	public WeatherPage()
-	{
-		InitializeComponent();
+
+    private readonly IApiService _apiService;
+    public WeatherPage(IApiService apiService)
+    {
+        InitializeComponent();
         WeatherList = new List<Models.List>();
-	}
+        _apiService = apiService;
+    }
     protected async override void OnAppearing()
     {
         base.OnAppearing();
@@ -23,13 +26,13 @@ public partial class WeatherPage : ContentPage
 
     private async Task GetWeatherDataByLocation()
     {
-        var result = await ApiService.GetWeatherAsync(lat, lon);
+        var result = await _apiService.GetWeatherAsync(lat, lon);
         ConfigureWeatherDatas(result);
 
     }
     private async Task GetWeatherDataByCity(string city)
     {
-        var result = await ApiService.GetWeatherByCityAsync(city);
+        var result = await _apiService.GetWeatherByCityAsync(city);
         ConfigureWeatherDatas(result);
     }
 
