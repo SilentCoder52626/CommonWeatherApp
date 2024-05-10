@@ -5,7 +5,6 @@ namespace CommonWeatherApp;
 
 public partial class WeatherPage : ContentPage
 {
-    public List<Models.List> WeatherList;
     public double lat;
     public double lon;
 
@@ -13,7 +12,6 @@ public partial class WeatherPage : ContentPage
     public WeatherPage(IApiService apiService)
     {
         InitializeComponent();
-        WeatherList = new List<Models.List>();
         _apiService = apiService;
     }
     protected async override void OnAppearing()
@@ -38,7 +36,8 @@ public partial class WeatherPage : ContentPage
 
     private void ConfigureWeatherDatas(Root result)
     {
-        WeatherList.Clear();
+        var WeatherList = new List<Models.List>(); ;
+
         foreach (var item in result.list)
         {
             WeatherList.Add(item);
