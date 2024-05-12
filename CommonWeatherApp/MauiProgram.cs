@@ -1,4 +1,5 @@
 ﻿using CommonWeatherApp.Services;
+using CommonWeatherApp.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
@@ -18,7 +19,8 @@ namespace CommonWeatherApp
             var config = new ConfigurationBuilder().AddJsonStream(stream).Build();
 
             builder.Configuration.AddConfiguration(config);
-            builder.Services.AddTransient<IApiService,ApiService>();
+            
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -27,9 +29,11 @@ namespace CommonWeatherApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-
+            builder.Services.AddTransient<IApiService, ApiService>();
+            builder.Services.AddSingleton<WeatherPageViewModel>();
+            
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

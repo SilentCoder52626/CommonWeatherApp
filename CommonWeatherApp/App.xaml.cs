@@ -4,18 +4,18 @@ namespace CommonWeatherApp
 {
     public partial class App : Application
     {
-        public App(IApiService apiService)
+        public App()
         {
             InitializeComponent();
 
             VersionTracking.Track();
             if (VersionTracking.IsFirstLaunchEver)
             {
-                MainPage = new WelcomePage(apiService);
+                MainPage = new WelcomePage();
             }
             else
             {
-                MainPage = new WeatherPage(apiService);
+                MainPage = new WeatherPage();
             }
         }
     }
